@@ -6,28 +6,33 @@ import (
 	"plugin"
 )
 
+var (
+	MonitorPlugin *plugin.Plugin
+)
+
 var(
 	PromHandler func() http.Handler
 )
 
-func InitPlugin(soPath string){
+func InitMonitorPlugin(soPath string){
 	var(
 		ok bool
+		err error
 	)
 
-	plugin, err := plugin.Open(soPath)
+	MonitorPlugin, err = plugin.Open(soPath)
 	if err != nil {
 		log.Println(err)
 		return
 	}
 
-	promHandler,err :=plugin.Lookup("PromHandler")
+	promHandlerFunc,err :=MonitorPlugin.Lookup("PromHandler")
 	if err != nil{
 		log.Println(err)
 		return
 	}
 
-	PromHandler,ok = promHandler.(func() http.Handler)
+	PromHandler,ok = promHandlerFunc.(func() http.Handler)
 	if !ok{
 		log.Println("!ok:PromHandler")
 		return

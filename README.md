@@ -9,4 +9,4 @@ google.golang.org/protobuf v1.26.0 => google.golang.org/protobuf v1.25.0
 )
 
 ### 生成so文件
-go build -buildmode=plugin -o monitor.so monitor.go
+go build -ldflags -pluginpath=monitor -buildmode=plugin -o monitor.so monitor.go
