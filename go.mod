@@ -11,9 +11,10 @@ require (
     github.com/prometheus/client_model v0.2.0 // indirect
     github.com/prometheus/common v0.32.1 // indirect
     github.com/prometheus/procfs v0.7.3 // indirect
-    golang.org/x/sys v0.0.0-20220919091848-fb04ddd9f9c8 // indirect
-    google.golang.org/protobuf v1.28.0 // indirect
+
+    golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 // indirect
+    google.golang.org/protobuf v1.26.0 // indirect
 )
 
-replace golang.org/x/sys v0.0.0-20220811171246-fbc7d0a398ab => golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e
-replace google.golang.org/protobuf v1.28.0 => google.golang.org/protobuf v1.25.0
+replace golang.org/x/sys v0.0.0-20220114195835-da31bd327af9 => golang.org/x/sys v0.0.0-20211216021012-1d35b9e2eb4e
+replace google.golang.org/protobuf v1.26.0 => google.golang.org/protobuf v1.25.0
